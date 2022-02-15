@@ -1,0 +1,23 @@
+#Estimator
+library(tidyverse)
+library(generics)
+library(estimatr)
+
+raw<-read_cvs("hh_98.cvs")
+
+fit <- lm(exptot ~ agehead + sexhead + dfmfd + dmmfd, 
+          raw)
+fit
+
+fit<-tidy(fit)
+
+# Estimation
+fit <- lm_robust(exptot ~ sexhead + dfmfd + dmmfd + agehead,
+                 raw)
+fit
+
+fit <- tidy(fit)
+
+ggplot(fit, aes(x = estimate, y = term, xmin = conf.low, xmax = conf.high)) +
+  geom_pointrange() +
+  geom_vline(xintercept = 0)
