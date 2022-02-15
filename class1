@@ -1,0 +1,66 @@
+1+1
+library(tidyverse)
+library(generics)
+library(estimatr)
+
+raw<-read.csv("hh_98.csv")
+hist(raw$agehead)
+summary(raw)
+head(raw)
+
+
+#CDF
+ggplot(raw,aes(x=exptot,color=factor(sexhead)))+#make campus
+  stat_ecdf() #Make histogram
+
+ggplot(raw,aes(x=exptot))+#make campus
+  geom_histogram()+#make histogram
+  facet_wrap(~sexhead)
+#microfinance use 
+
+#homework1
+
+#- Draw histogram and ECDF of agehead(age of household head) in each dfmfd == 1 (female microfinance user) and dmfd = 0 (non-user)
+#- Interprete above figures.
+
+# Submittion
+
+#- You should submit independent Rscrit file (Interpretation is after #)
+ #                                            - Submite for jzjzamudiop@gmail.com
+  #                                           - Deadline is 1 p.m. in 2/15
+                                             
+ggplot(raw,aes(x=agehead,color=factor(dmmfd==0)))+#make campus
+  stat_ecdf() #Make histogram
+
+ggplot(raw,aes(x=agehead,color=factor(dfmfd==1)))+#make campus
+  stat_ecdf() #Make histogram
+
+
+ggplot(raw,aes(x=agehead))+#make campus
+  geom_histogram()+#make histogram
+  facet_wrap(~dmmfd)
+
+ggplot(raw,aes(x=agehead))+#make campus
+  geom_histogram()+#make histogram
+  facet_wrap(~dfmfd)
+
+
+ggplot(raw, aes(x = agehead,
+                y = exptot)
+) +
+  geom_bin2d() +
+  scale_fill_continuous(low="blue",high="red")
+
+
+# Scatter plot
+ggplot(raw, aes(x = agehead,
+                y = exptot)
+) +
+  geom_point()
+
+# Heatmap plot
+ggplot(raw, aes(x = agehead,
+                y = exptot)
+) +
+  geom_bin2d()
+
