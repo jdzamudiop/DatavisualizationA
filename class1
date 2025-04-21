@@ -26,7 +26,7 @@ ggplot(raw,aes(x=exptot))+#make campus
 # Submittion
 
 #- You should submit independent Rscrit file (Interpretation is after #)
- #                                            - Submite for jzjzamudiop@gmail.com
+ #                                            - Submite for ^---
   #                                           - Deadline is 1 p.m. in 2/15
                                              
 ggplot(raw,aes(x=agehead,color=factor(dmmfd==0)))+#make campus
